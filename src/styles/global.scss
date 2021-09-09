@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, input, button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #7B58A6;
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(0.8)
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 87.5%;
+    }
+}

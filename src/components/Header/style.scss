@@ -1,0 +1,15 @@
+header {
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #a73737;
+    background: -webkit-linear-gradient(to right, #7a2828, #a73737);
+    background: linear-gradient(to right, #7a2828, #a73737);
+
+    h1 {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+}
