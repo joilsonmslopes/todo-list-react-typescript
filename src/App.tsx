@@ -23,6 +23,10 @@ function App() {
   const [task, setTask] = useState('');
 
   function handleAddNewTask(e: ChangeEvent<HTMLInputElement>) {
+    if(e.target.value === "") {
+      console.log("campo obrigatório");
+      return;
+    }
     setTask(e.target.value)
   }
 
@@ -44,9 +48,8 @@ function App() {
       done: !task.done
     } : task);
 
-    localStorage.setItem('ls_tasks', JSON.stringify(updatedTask))
-
     setTasks(updatedTask);
+    localStorage.setItem('ls_tasks', JSON.stringify(updatedTask))
   }
 
   return (
