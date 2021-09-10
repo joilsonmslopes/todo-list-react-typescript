@@ -2,20 +2,22 @@ import { Task } from '../Task';
 import './style.scss';
 
 interface ITasks {
+    id: number;
     task: string;
     done: boolean;
 }
 
 interface TaskListProps {
-    tasks: ITasks[]
+    tasks: ITasks[];
+    handleUpdateTask:(id: number) => void;
 }
 
-export function TaskList({tasks}: TaskListProps) {
+export function TaskList({tasks, handleUpdateTask}: TaskListProps) {
     return(
         <div className="container">
             <ul id="task-list">
-                {tasks && tasks.map((task, index) => (
-                    <Task key={index} task={task.task} done={task.done} />
+                {tasks && tasks.map((task) => (
+                    <Task key={task.id} task={task.task} done={task.done} id={task.id} handleUpdateTask={() => handleUpdateTask(task.id)} />
                 ))}
                 
             </ul>
