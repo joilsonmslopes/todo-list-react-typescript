@@ -52,11 +52,26 @@ function App() {
     localStorage.setItem('ls_tasks', JSON.stringify(updatedTask))
   }
 
+  function handleDeleteTask(id: number) {
+    const filteredTask = tasks.filter(task => task.id !== id);
+
+    setTasks(filteredTask);
+    localStorage.setItem('ls_tasks', JSON.stringify(filteredTask))
+  }
+
   return (
     <div className="App">
       <Header />
-      <NewTask task={task} handleAddTasks={handleAddTasks} handleAddNewTask={handleAddNewTask}/>
-      <TaskList tasks={tasks} handleUpdateTask={handleUpdateTask}/>
+      <NewTask 
+        task={task} 
+        handleAddTasks={handleAddTasks} 
+        handleAddNewTask={handleAddNewTask}
+      />
+      <TaskList 
+        tasks={tasks} 
+        handleUpdateTask={handleUpdateTask}
+        handleDeleteTask={handleDeleteTask}
+      />
     </div>
   );
 }

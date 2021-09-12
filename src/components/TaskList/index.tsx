@@ -10,14 +10,22 @@ interface ITasks {
 interface TaskListProps {
     tasks: ITasks[];
     handleUpdateTask:(id: number) => void;
+    handleDeleteTask: (id: number) => void;
 }
 
-export function TaskList({tasks, handleUpdateTask}: TaskListProps) {
+export function TaskList({tasks, handleUpdateTask, handleDeleteTask}: TaskListProps) {
     return(
         <div className="container">
             <ul id="task-list">
                 {tasks && tasks.map((task) => (
-                    <Task key={task.id} task={task.task} done={task.done} id={task.id} handleUpdateTask={() => handleUpdateTask(task.id)} />
+                    <Task
+                        key={task.id} 
+                        task={task.task} 
+                        done={task.done} 
+                        id={task.id} 
+                        handleUpdateTask={() => handleUpdateTask(task.id)}
+                        handleDeleteTask={() => handleDeleteTask(task.id)}
+                    />
                 ))}
                 
             </ul>

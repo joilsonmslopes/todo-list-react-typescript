@@ -1,3 +1,4 @@
+import { MdDelete } from 'react-icons/md';
 import './style.scss';
 
 interface TaskProps {
@@ -5,21 +6,30 @@ interface TaskProps {
     task: string;
     done: boolean;
     handleUpdateTask: (id: number) => void;
+    handleDeleteTask: (id: number) => void;
 }
 
-export function Task({id, task, done, handleUpdateTask}: TaskProps) {
+export function Task({id, task, done, handleUpdateTask, handleDeleteTask}: TaskProps) {
     return(
         <>
-            <li 
-                className={done ? 'active' : ''}
-            >
-                <input
-                    type="checkbox"
-                    id={'check_' + id}
-                    defaultChecked={done}
-                    onClick={() => handleUpdateTask(id)}
-                />
-                <label htmlFor={'check_' + id}>{task}</label>
+            <li>
+                <div className="input-group">
+                    <input
+                        type="checkbox"
+                        id={'check_' + id}
+                        defaultChecked={done}
+                        onClick={() => handleUpdateTask(id)}
+                    />
+                    <label
+                        htmlFor={'check_' + id}
+                        className={done ? 'active' : ''}
+                    >
+                        {task}
+                    </label>
+                </div>
+                <span onClick={() => {handleDeleteTask(id)}}>
+                    <MdDelete />
+                </span>
             </li>
         </>
     );
