@@ -14,3 +14,10 @@ button.btn {
         filter: brightness(0.8);
     }
 }
+
+@media (max-width:576px) {
+    button.btn {
+        width: 100%;
+        max-width: 100%;
+    }
+}
