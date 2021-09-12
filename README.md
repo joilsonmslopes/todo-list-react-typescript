@@ -13,7 +13,7 @@ Uma Lista de tarefas a fazer, onde o usuário pode adicionar uma nova task, pode
 - Dados são persistido no navegador do usuário
 
 ## Features a ser implementadas
-[ ] Deletar task<br>
+[x] Deletar task<br>
 [ ] Listar todas as tasks<br>
 [ ] Listar apenas tasks concluídas<br>
 [ ] Listar apenas tasks não concluídas
