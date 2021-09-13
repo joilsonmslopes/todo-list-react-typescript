@@ -23,14 +23,12 @@ function App() {
   const [task, setTask] = useState('');
 
   function handleAddNewTask(e: ChangeEvent<HTMLInputElement>) {
-    if(e.target.value === "") {
-      console.log("campo obrigatório");
-      return;
-    }
     setTask(e.target.value)
   }
 
   function handleAddTasks() {
+      if(!task) return;
+      
       const newTask = {
           id: Date.now(),
           task,
