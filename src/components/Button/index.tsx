@@ -1,10 +1,9 @@
+import { useContext } from 'react';
+import { TasksContext } from '../../contexts/TasksContext';
 import './style.scss';
 
-interface ButtonProps {
-    handleAddTasks: () => void;
-}
-
-export function Button({handleAddTasks}: ButtonProps) {
+export function Button() {
+    const { handleAddTasks } = useContext(TasksContext);
     return (
         <button
             className="btn"

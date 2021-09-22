@@ -1,14 +1,10 @@
-import { ChangeEvent } from 'react';
+import { useContext } from 'react';
+import { TasksContext } from '../../contexts/TasksContext';
 import { Button } from '../Button';
 import './style.scss';
 
-interface NewTaskProps {
-    handleAddNewTask: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleAddTasks: () => void;
-    task: string;
-}
-
-export function NewTask({task, handleAddNewTask, handleAddTasks}: NewTaskProps) {
+export function NewTask() {
+    const { task, handleAddNewTask } = useContext(TasksContext)
     return(
         <section id="new-task">
             <div>
@@ -17,9 +13,7 @@ export function NewTask({task, handleAddNewTask, handleAddTasks}: NewTaskProps) 
                     onChange={(e) => handleAddNewTask(e)}
                     value={task}
                 />
-                <Button
-                    handleAddTasks={() => handleAddTasks()}
-                />
+                <Button />
             </div>
         </section>
     );

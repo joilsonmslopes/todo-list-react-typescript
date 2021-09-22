@@ -1,19 +1,10 @@
+import { useContext } from 'react';
+import { TasksContext } from '../../contexts/TasksContext';
 import { Task } from '../Task';
 import './style.scss';
 
-interface ITasks {
-    id: number;
-    task: string;
-    done: boolean;
-}
-
-interface TaskListProps {
-    tasks: ITasks[];
-    handleUpdateTask:(id: number) => void;
-    handleDeleteTask: (id: number) => void;
-}
-
-export function TaskList({tasks, handleUpdateTask, handleDeleteTask}: TaskListProps) {
+export function TaskList() {
+    const { tasks } = useContext(TasksContext)
     return(
         <div className="container">
             <ul id="task-list">
@@ -23,8 +14,6 @@ export function TaskList({tasks, handleUpdateTask, handleDeleteTask}: TaskListPr
                         task={task.task} 
                         done={task.done} 
                         id={task.id} 
-                        handleUpdateTask={() => handleUpdateTask(task.id)}
-                        handleDeleteTask={() => handleDeleteTask(task.id)}
                     />
                 ))}
                 

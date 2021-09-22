@@ -1,15 +1,16 @@
+import { useContext } from 'react';
 import { MdDelete } from 'react-icons/md';
+import { TasksContext } from '../../contexts/TasksContext';
 import './style.scss';
 
 interface TaskProps {
     id: number;
     task: string;
     done: boolean;
-    handleUpdateTask: (id: number) => void;
-    handleDeleteTask: (id: number) => void;
 }
 
-export function Task({id, task, done, handleUpdateTask, handleDeleteTask}: TaskProps) {
+export function Task({id, task, done}: TaskProps) {
+    const { handleUpdateTask, handleDeleteTask } = useContext(TasksContext);
     return(
         <>
             <li>
